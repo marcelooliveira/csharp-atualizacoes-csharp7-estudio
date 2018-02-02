@@ -52,15 +52,16 @@ namespace csharp7.R12.depois
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException(message: "Nome obrigatório", paramName: nameof(nome));
 
-            return ImplementacaoTrabalhoDemorado("Rua Vergueiro", 10, "Caelum");
+            return implementacaoTrabalhoDemorado();
+
+            async Task<string> implementacaoTrabalhoDemorado()
+            {
+                var primeiroResultado = await PrimeiroPasso(endereco);
+                var segundoResultado = await SegundoPasso(indice, nome);
+                return $"Os resultados são {primeiroResultado} e {segundoResultado}.";
+            }
         }
 
-        private static async Task<string> ImplementacaoTrabalhoDemorado(string endereco, int indice, string nome)
-        {
-            var primeiroResultado = await PrimeiroPasso(endereco);
-            var segundoResultado = await SegundoPasso(indice, nome);
-            return $"Os resultados são {primeiroResultado} e {segundoResultado}.";
-        }
 
         private static Task<int> SegundoPasso(int index, string name)
         {
