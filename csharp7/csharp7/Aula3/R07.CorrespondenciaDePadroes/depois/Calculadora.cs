@@ -35,68 +35,53 @@ namespace csharp7.R07.depois
 
         public void Somar(object parametro)
         {
-            int valorInt = 0;
-            decimal valorDecimal = 0;
-            double valorDouble = 0;
             var cultura = System.Globalization.CultureInfo.CurrentCulture;
 
-            if (double.TryParse(parametro.ToString(), NumberStyles.Currency, cultura.NumberFormat, out valorDouble))
+            switch (parametro)
             {
-                Console.WriteLine($"Total anterior: {Soma}");
-                Console.WriteLine($"Somando: {valorDouble}");
-                Soma += valorDouble;
-                Console.WriteLine($"Total atual: {Soma}");
-                Console.WriteLine();
-            }
-            else if (int.TryParse(parametro.ToString(), out valorInt))
-            {
-                Somar(valorInt);
-            }
-            else if (decimal.TryParse(parametro.ToString(), out valorDecimal))
-            {
-                Somar(valorDecimal);
-            }
-            else
-            {
-                var colecao = parametro as IEnumerable<object>;
-                if (colecao != null)
-                {
+                case double valor:
+                    Console.WriteLine($"Total anterior: {Soma}");
+                    Console.WriteLine($"Somando: {valor}");
+                    Soma += valor;
+                    Console.WriteLine($"Total atual: {Soma}");
+                    Console.WriteLine();
+                    break;
+                case string str:
+                    if (double.TryParse(str.ToString(), NumberStyles.Currency, cultura.NumberFormat, out double val))
+                        Somar(val);
+                    break;
+                case int valor:
+                    Somar((double)valor);
+                    break;
+                case decimal valor:
+                    Somar((double)valor);
+                    break;
+                case object[] colecao:
                     foreach (var item in colecao)
                     {
                         Somar(item);
                     }
-                    return;
-                }
-
-                var colecaoInt = parametro as IEnumerable<int>;
-                if (colecaoInt != null)
-                {
-                    foreach (var item in colecaoInt)
+                    break;
+                case int[] colecao:
+                    foreach (var item in colecao)
+                    {
+                        Somar((double)item);
+                    }
+                    break;
+                case decimal[] colecao:
+                    foreach (var item in colecao)
+                    {
+                        Somar((double)item);
+                    }
+                    break;
+                case double[] colecao:
+                    foreach (var item in colecao)
                     {
                         Somar(item);
                     }
-                    return;
-                }
-
-                var colecaoDecimal = parametro as IEnumerable<decimal>;
-                if (colecaoDecimal != null)
-                {
-                    foreach (var item in colecaoDecimal)
-                    {
-                        Somar(item);
-                    }
-                    return;
-                }
-
-                var colecaoDouble = parametro as IEnumerable<double>;
-                if (colecaoDouble != null)
-                {
-                    foreach (var item in colecaoDouble)
-                    {
-                        Somar(item);
-                    }
-                    return;
-                }
+                    break;
+                default:
+                    break;
             }
         }
     }

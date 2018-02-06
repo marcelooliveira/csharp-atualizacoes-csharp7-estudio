@@ -60,13 +60,13 @@ namespace csharp7.R11.depois
         private static (string estado, string nome, double latitude, double longitude, bool capital)
             LerLinha(string linha)
         {
-            string[] campos = default;
+            string[] campos = null;
 
-            string estado = default;
-            string nome = default;
-            double latitude = default;
-            double longitude = default;
-            bool capital = default;
+            string estado = null;
+            string nome = null;
+            double latitude = default(double);
+            double longitude = default(double);
+            bool capital = default(bool);
 
             campos = linha.Split(',');
 

@@ -10,7 +10,7 @@ namespace csharp7.R10.depois
 {
     class MenuItem : csharp7.MenuItem
     {
-        public override void Main()
+        public async override void Main()
         {
             //obs: O método acima seria o Main do programa: static void Main(string[] args)
             var html = GetDotNetCountAsync().GetAwaiter().GetResult();
