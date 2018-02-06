@@ -1,4 +1,4 @@
-﻿using System;   
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -46,12 +46,27 @@ namespace csharp7.R13.depois
     {
         private const double PONTOS_POR_LOCACAO = 1.5;
 
-        public Cliente(string nome) => Nome = nome;
+        public Cliente(string nome)
+        {
+            Nome = nome;
+        }
 
         public string Nome { get; }
         public IList<Locacao> Locacoes { get; } = new List<Locacao>();
-        public double ValorTotal => Locacoes.Sum(l => l.Preco);
-        public double PontosDeFidelidade => Locacoes.Count * PONTOS_POR_LOCACAO;
+        public double ValorTotal
+        {
+            get
+            {
+                return Locacoes.Sum(l => l.Preco);
+            }
+        }
+        public double PontosDeFidelidade
+        {
+            get
+            {
+                return Locacoes.Count * PONTOS_POR_LOCACAO;
+            }
+        }
 
         public void Adicionar(Locacao locacao) => Locacoes.Add(locacao);
     }
@@ -138,7 +153,13 @@ namespace csharp7.R13.depois
 
         public DateTime DataLocacao { get; }
 
-        public DateTime DataExpiracao => DataLocacao.Date + new TimeSpan(30, 0, 0, 0);
+        public DateTime DataExpiracao
+        {
+            get
+            {
+                return DataLocacao.Date + new TimeSpan(30, 0, 0, 0);
+            }
+        }
 
         public double Preco { get; }
 

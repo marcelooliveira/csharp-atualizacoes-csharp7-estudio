@@ -85,7 +85,12 @@ namespace csharp7.R08.depois
 
         public Cliente(string nome)
         {
-            Nome = nome ?? throw new ArgumentNullException(nameof(nome), "Parâmetro não pode ser nulo.");
+            if (nome == null)
+            {
+                throw new ArgumentNullException(nameof(nome), "Parâmetro não pode ser nulo.");
+            }
+
+            Nome = nome;
         }
 
         public string Nome { get; }
@@ -105,7 +110,12 @@ namespace csharp7.R08.depois
 
         public BaseResumo(Cliente cliente)
         {
-            this.cliente = cliente ?? throw new ArgumentNullException(nameof(cliente), "Parâmetro não pode ser nulo.");
+            if (cliente == null)
+            {
+                throw new ArgumentNullException(nameof(cliente), "Parâmetro não pode ser nulo.");
+            }
+
+            this.cliente = cliente;
         }
 
         public string GetResumo()

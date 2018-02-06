@@ -31,14 +31,14 @@ namespace csharp7.R05.depois
                 string linha;
                 while ((linha = streamReader.ReadLine()) != null)
                 {
-                    var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
-                    cidades.Add(new Cidade(estado, nome, capital));
+                    Tuple<string, string, double, double, bool> tupla = LerLinha(linha);
+                    cidades.Add(new Cidade(tupla.Item1, tupla.Item2, tupla.Item5));
                 }
             }
             return cidades;
         }
 
-        private static (string, string, double, double, bool) LerLinha(string linha)
+        private static Tuple<string, string, double, double, bool> LerLinha(string linha)
         {
             string[] campos = linha.Split(',');
 
@@ -48,7 +48,8 @@ namespace csharp7.R05.depois
             var longitude = double.Parse(campos[3]);
             var capital = campos[4] == "true";
 
-            return (estado, nome, latitude, longitude, capital);
+            return new Tuple<string, string, double, double, bool>
+                (estado, nome, latitude, longitude, capital);
         }
 
         class Cidade

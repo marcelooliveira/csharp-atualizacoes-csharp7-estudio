@@ -32,14 +32,13 @@ namespace csharp7.R12.depois
                 throw new ArgumentException($"{nameof(fim)} deve ser maior que {nameof(inicio)}");
 
             return implementacaoSubconjuntoDoAlfabeto(inicio, fim);
-
-            IEnumerable<char> implementacaoSubconjuntoDoAlfabeto(char i2, char f2)
-            {
-                for (var c = i2; c < f2; c++)
-                    yield return c;
-            }
         }
 
+        private static IEnumerable<char> implementacaoSubconjuntoDoAlfabeto(char inicio, char fim)
+        {
+            for (var c = inicio; c < fim; c++)
+                yield return c;
+        }
     }
 
     class Tarefas

@@ -8,28 +8,13 @@ using static System.Console;
 
 namespace csharp7.R11.depois
 {
-    //Tipo de valor | Valor padrão
-    //============================
-    //string: null
-    //List<int>: null
-    //struct: O valor produzido pela configuração de todos os campos tipo-valor para seus valores padrão e todos os campos tipo-referência para null.
-    //enum: O valor produzido pela expressão(E)0, em que E é o identificador de enumeração.
-    //bool: false
-    //byte: 0
-    //char: '\0'
-    //decimal: M 0
-    //double: 0,0D
-    //float: 0,0F
-    //int: 0
-    //long, sbyte, short, uint, ulong, ushort: 0
-
     class MenuItem : csharp7.MenuItem
     {
         public override void Main()
         {
-            IList<Cidade> cidades = default;
+            IList<Cidade> cidades = null;
             cidades = LerArquivo();
-            IEnumerable<Cidade> capitais = default;
+            IEnumerable<Cidade> capitais = null;
             capitais = cidades.Where(c => c.Capital);
             foreach (var capital in capitais)
             {
@@ -39,14 +24,14 @@ namespace csharp7.R11.depois
 
         private static IList<Cidade> LerArquivo()
         {
-            IList<Cidade> cidades = default;
+            IList<Cidade> cidades = null;
             cidades = new List<Cidade>();
             Encoding encoding = Encoding.GetEncoding(new CultureInfo("pt-BR").TextInfo.ANSICodePage);
             using (var streamReader = new StreamReader("cidades.csv", encoding))
             {
                 streamReader.ReadLine();
 
-                string linha = default;
+                string linha = null;
                 while ((linha = streamReader.ReadLine()) != null)
                 {
                     var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
@@ -60,13 +45,13 @@ namespace csharp7.R11.depois
         private static (string estado, string nome, double latitude, double longitude, bool capital)
             LerLinha(string linha)
         {
-            string[] campos = default;
+            string[] campos = null;
 
-            string estado = default;
-            string nome = default;
-            double latitude = default;
-            double longitude = default;
-            bool capital = default;
+            string estado = null;
+            string nome = null;
+            double latitude = default(double);
+            double longitude = default(double);
+            bool capital = default(bool);
 
             campos = linha.Split(',');
 
@@ -88,7 +73,7 @@ namespace csharp7.R11.depois
             public string Nome { get; }
             public bool Capital { get; }
 
-            public Cidade(string estado, string nome, bool capital = default)
+            public Cidade(string estado, string nome, bool capital = default(bool))
             {
                 Estado = estado;
                 Nome = nome;

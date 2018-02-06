@@ -16,7 +16,8 @@ namespace csharp7.R01.depois
                 while ((linha = streamReader.ReadLine()) != null)
                 {
                     string[] campos = linha.Split(',');
-                    int.TryParse(campos[0], out int id);
+                    int id = 0;
+                    int.TryParse(campos[0], out id);
                     if (id > 0)
                     {
                         Cliente cliente = new Cliente(id, campos[1], campos[2], campos[3]);

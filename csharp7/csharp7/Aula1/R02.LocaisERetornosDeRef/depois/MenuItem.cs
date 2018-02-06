@@ -14,18 +14,18 @@ namespace csharp7.R02.depois
         public override void Main()
         {
             int[] numeros = { 2, 7, 1, 9, 12, 8, 15 };
-            ref int indice = ref LocalizarIndice(12, numeros);
+            int indice = LocalizarIndice(12, numeros);
             numeros[4] = -12;
             WriteLine(numeros[4]);
         }
 
-        public ref int LocalizarIndice(int valor, int[] numeros)
+        public int LocalizarIndice(int valor, int[] numeros)
         {
             for (int i = 0; i < numeros.Length; i++)
             {
                 if (numeros[i] == valor)
                 {
-                    return ref numeros[i];
+                    return numeros[i];
                 }
             }
 
