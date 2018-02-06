@@ -32,13 +32,14 @@ namespace csharp7.R12.depois
                 throw new ArgumentException($"{nameof(fim)} deve ser maior que {nameof(inicio)}");
 
             return implementacaoSubconjuntoDoAlfabeto(inicio, fim);
+
+            IEnumerable<char> implementacaoSubconjuntoDoAlfabeto(char i2, char f2)
+            {
+                for (var c = i2; c < f2; c++)
+                    yield return c;
+            }
         }
 
-        private static IEnumerable<char> implementacaoSubconjuntoDoAlfabeto(char inicio, char fim)
-        {
-            for (var c = inicio; c < fim; c++)
-                yield return c;
-        }
     }
 
     class Tarefas
@@ -52,16 +53,15 @@ namespace csharp7.R12.depois
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException(message: "Nome obrigatório", paramName: nameof(nome));
 
-            return implementacaoTrabalhoDemorado();
-
-            async Task<string> implementacaoTrabalhoDemorado()
-            {
-                var primeiroResultado = await PrimeiroPasso(endereco);
-                var segundoResultado = await SegundoPasso(indice, nome);
-                return $"Os resultados são {primeiroResultado} e {segundoResultado}.";
-            }
+            return ImplementacaoTrabalhoDemorado(endereco, indice, nome);
         }
 
+        private static async Task<string> ImplementacaoTrabalhoDemorado(string endereco, int indice, string nome)
+        {
+            var primeiroResultado = await PrimeiroPasso(endereco);
+            var segundoResultado = await SegundoPasso(indice, nome);
+            return $"Os resultados são {primeiroResultado} e {segundoResultado}.";
+        }
 
         private static Task<int> SegundoPasso(int index, string name)
         {
@@ -73,4 +73,5 @@ namespace csharp7.R12.depois
             throw new NotImplementedException();
         }
     }
+
 }
