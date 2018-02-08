@@ -9,9 +9,9 @@ namespace CSharp7
         static string[] menus = new string[] {
             //AULA 1 - MELHORIAS EM PARÂMETROS
             "1. Variáveis out",
-            "2. Locais e retornos de Ref"
+            "2. Locais e retornos de Ref",
+            "3. Parâmetros in"
             //,
-            //"3. Parâmetros in",
             //"4. Argumentos Nomeados",
             ////AULA 2 - TUPLAS
             //"5. Tuplas",
