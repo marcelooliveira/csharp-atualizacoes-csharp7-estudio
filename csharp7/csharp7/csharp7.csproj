@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Aula1\R01.VariaveisOut\antes\Cliente.cs" />
     <Compile Include="Aula1\R01.VariaveisOut\depois\Cliente.cs" />
+    <Compile Include="Aula1\R02.LocaisERetornosDeRef\antes\MenuItem.cs" />
+    <Compile Include="Aula1\R02.LocaisERetornosDeRef\depois\MenuItem.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
