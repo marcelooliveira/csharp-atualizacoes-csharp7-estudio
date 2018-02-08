@@ -15,7 +15,7 @@ namespace csharp7.R02.depois
         {
             int[] numeros = { 2, 7, 1, 9, 12, 8, 15 };
             int indice = LocalizarIndice(12, numeros);
-            numeros[4] = -12;
+            numeros[indice] = -12;
             WriteLine(numeros[4]);
         }
 
@@ -25,7 +25,7 @@ namespace csharp7.R02.depois
             {
                 if (numeros[i] == valor)
                 {
-                    return numeros[i];
+                    return i;
                 }
             }
 
