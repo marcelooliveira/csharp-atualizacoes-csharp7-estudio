@@ -54,6 +54,11 @@ namespace csharp7.R07.antes
                 return;
             }
 
+            if (double.TryParse(parametro.ToString(), out valorDouble))
+            {
+                Somar(valorDouble);
+            }
+
             if (parametro is string)
             {
                 var str = parametro as string;
@@ -66,13 +71,13 @@ namespace csharp7.R07.antes
 
             if (int.TryParse(parametro.ToString(), out valorInt))
             {
-                Somar(valorInt);
+                Somar((double)valorInt);
                 return;
             }
 
             if (decimal.TryParse(parametro.ToString(), out valorDecimal))
             {
-                Somar(valorDecimal);
+                Somar((double)valorDecimal);
                 return;
             }
 
