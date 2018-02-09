@@ -41,78 +41,47 @@ namespace csharp7.R07.depois
         {
             var cultura = System.Globalization.CultureInfo.CurrentCulture;
 
-            if (double.TryParse(parametro.ToString(), out double valorDouble))
+            switch (parametro)
             {
-                Console.WriteLine($"Total anterior: {Soma}");
-                Console.WriteLine($"Somando: {valorDouble}");
-                Soma += valorDouble;
-                Console.WriteLine($"Total atual: {Soma}");
-                Console.WriteLine();
-                return;
-            }
-
-            if (int.TryParse(parametro.ToString(), out int valorInt))
-            {
-                Somar((double)valorInt);
-                return;
-            }
-
-            if (decimal.TryParse(parametro.ToString(), out decimal valorDecimal))
-            {
-                Somar((double)valorDecimal);
-                return;
-            }
-
-            if (parametro is string)
-            {
-                var str = parametro as string;
-                if (Regex.Match(str, NUMERO_ENTRE_COLCHETES).Success)
-                {
-                    Somar(Regex.Match(str, NUMERO_ENTRE_COLCHETES).Groups[1].Value);
-                    return;
-                }
-
-                if (double.TryParse(parametro.ToString(), NumberStyles.Currency, cultura.NumberFormat, out valorDouble))
-                {
-                    Somar(valorDouble);
-                    return;
-                }
-            }
-
-            if (parametro is IEnumerable<object> colecao)
-            {
-                foreach (var item in colecao)
-                {
-                    Somar(item);
-                }
-                return;
-            }
-
-            if (parametro is IEnumerable<int> colecaoInt)
-            {
-                foreach (var item in colecaoInt)
-                {
-                    Somar(item);
-                }
-                return;
-            }
-
-            if (parametro is IEnumerable<decimal> colecaoDecimal)
-            {
-                foreach (var item in colecaoDecimal)
-                {
-                    Somar(item);
-                }
-                return;
-            }
-
-            if (parametro is IEnumerable<double> colecaoDouble)
-            {
-                foreach (var item in colecaoDouble)
-                {
-                    Somar(item);
-                }
-                return;
+                case double valorDouble:
+                    Console.WriteLine($"Total anterior: {Soma}");
+                    Console.WriteLine($"Somando: {valorDouble}");
+                    Soma += valorDouble;
+                    Console.WriteLine($"Total atual: {Soma}");
+                    Console.WriteLine();
+                    break;
+                case int valorInt:
+                    Somar((double)valorInt);
+                    break;
+                case decimal valorDecimal:
+                    Somar((double)valorDecimal);
+                    break;
+                case string str
+                    when (Regex.Match(str, NUMERO_ENTRE_COLCHETES).Success):
+                    {
+                        Somar(Regex.Match(str, NUMERO_ENTRE_COLCHETES).Groups[1].Value);
+                    }
+                    break;
+                case string str
+                    when (double.TryParse(parametro.ToString(), NumberStyles.Currency, cultura.NumberFormat, out double valorDouble)):
+                    {
+                        Somar(valorDouble);
+                    }
+                    break;
+                case IEnumerable<object> colecao:
+                    foreach (var item in colecao) Somar(item);
+                    break;
+                case IEnumerable<int> colecao:
+                    foreach (var item in colecao) Somar(item);
+                    break;
+                case IEnumerable<decimal> colecao:
+                    foreach (var item in colecao) Somar(item);
+                    break;
+                case IEnumerable<double> colecao:
+                    foreach (var item in colecao) Somar(item);
+                    break;
+                default:
+                    break;
             }
         }
     }
