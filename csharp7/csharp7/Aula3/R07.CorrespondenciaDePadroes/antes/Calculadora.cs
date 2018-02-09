@@ -44,7 +44,7 @@ namespace csharp7.R07.antes
             double valorDouble = 0;
             var cultura = System.Globalization.CultureInfo.CurrentCulture;
 
-            if (double.TryParse(parametro.ToString(), NumberStyles.Currency, cultura.NumberFormat, out valorDouble))
+            if (double.TryParse(parametro.ToString(), out valorDouble))
             {
                 Console.WriteLine($"Total anterior: {Soma}");
                 Console.WriteLine($"Somando: {valorDouble}");
@@ -52,21 +52,6 @@ namespace csharp7.R07.antes
                 Console.WriteLine($"Total atual: {Soma}");
                 Console.WriteLine();
                 return;
-            }
-
-            if (double.TryParse(parametro.ToString(), out valorDouble))
-            {
-                Somar(valorDouble);
-            }
-
-            if (parametro is string)
-            {
-                var str = parametro as string;
-                if (Regex.Match(str, NUMERO_ENTRE_COLCHETES).Success)
-                {
-                    Somar(Regex.Match(str, NUMERO_ENTRE_COLCHETES).Groups[1].Value);
-                    return;
-                }
             }
 
             if (int.TryParse(parametro.ToString(), out valorInt))
@@ -79,6 +64,22 @@ namespace csharp7.R07.antes
             {
                 Somar((double)valorDecimal);
                 return;
+            }
+
+            if (parametro is string)
+            {
+                var str = parametro as string;
+                if (Regex.Match(str, NUMERO_ENTRE_COLCHETES).Success)
+                {
+                    Somar(Regex.Match(str, NUMERO_ENTRE_COLCHETES).Groups[1].Value);
+                    return;
+                }
+
+                if (double.TryParse(parametro.ToString(), NumberStyles.Currency, cultura.NumberFormat, out valorDouble))
+                {
+                    Somar(valorDouble);
+                    return;
+                }
             }
 
             var colecao = parametro as IEnumerable<object>;
