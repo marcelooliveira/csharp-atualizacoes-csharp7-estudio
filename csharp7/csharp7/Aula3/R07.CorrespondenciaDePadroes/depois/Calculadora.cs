@@ -41,8 +41,7 @@ namespace csharp7.R07.depois
         {
             var cultura = System.Globalization.CultureInfo.CurrentCulture;
 
-            double valorDouble = 0;
-            if (double.TryParse(parametro.ToString(), out valorDouble))
+            if (double.TryParse(parametro.ToString(), out double valorDouble))
             {
                 Console.WriteLine($"Total anterior: {Soma}");
                 Console.WriteLine($"Somando: {valorDouble}");
@@ -52,15 +51,13 @@ namespace csharp7.R07.depois
                 return;
             }
 
-            int valorInt = 0;
-            if (int.TryParse(parametro.ToString(), out valorInt))
+            if (int.TryParse(parametro.ToString(), out int valorInt))
             {
                 Somar((double)valorInt);
                 return;
             }
 
-            decimal valorDecimal = 0;
-            if (decimal.TryParse(parametro.ToString(), out valorDecimal))
+            if (decimal.TryParse(parametro.ToString(), out decimal valorDecimal))
             {
                 Somar((double)valorDecimal);
                 return;
@@ -82,8 +79,7 @@ namespace csharp7.R07.depois
                 }
             }
 
-            var colecao = parametro as IEnumerable<object>;
-            if (colecao != null)
+            if (parametro is IEnumerable<object> colecao)
             {
                 foreach (var item in colecao)
                 {
@@ -92,8 +88,7 @@ namespace csharp7.R07.depois
                 return;
             }
 
-            var colecaoInt = parametro as IEnumerable<int>;
-            if (colecaoInt != null)
+            if (parametro is IEnumerable<int> colecaoInt)
             {
                 foreach (var item in colecaoInt)
                 {
@@ -102,8 +97,7 @@ namespace csharp7.R07.depois
                 return;
             }
 
-            var colecaoDecimal = parametro as IEnumerable<decimal>;
-            if (colecaoDecimal != null)
+            if (parametro is IEnumerable<decimal> colecaoDecimal)
             {
                 foreach (var item in colecaoDecimal)
                 {
@@ -112,8 +106,7 @@ namespace csharp7.R07.depois
                 return;
             }
 
-            var colecaoDouble = parametro as IEnumerable<double>;
-            if (colecaoDouble != null)
+            if (parametro is IEnumerable<double> colecaoDouble)
             {
                 foreach (var item in colecaoDouble)
                 {
