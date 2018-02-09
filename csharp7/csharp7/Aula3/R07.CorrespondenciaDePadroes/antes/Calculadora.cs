@@ -39,11 +39,9 @@ namespace csharp7.R07.antes
 
         public void Somar(object parametro)
         {
-            int valorInt = 0;
-            decimal valorDecimal = 0;
-            double valorDouble = 0;
             var cultura = System.Globalization.CultureInfo.CurrentCulture;
 
+            double valorDouble = 0;
             if (double.TryParse(parametro.ToString(), out valorDouble))
             {
                 Console.WriteLine($"Total anterior: {Soma}");
@@ -54,12 +52,14 @@ namespace csharp7.R07.antes
                 return;
             }
 
+            int valorInt = 0;
             if (int.TryParse(parametro.ToString(), out valorInt))
             {
                 Somar((double)valorInt);
                 return;
             }
 
+            decimal valorDecimal = 0;
             if (decimal.TryParse(parametro.ToString(), out valorDecimal))
             {
                 Somar((double)valorDecimal);
