@@ -13,11 +13,10 @@ namespace csharp7.R10.antes
         public override void Main()
         {
             //obs: O método acima seria o Main do programa: static void Main(string[] args)
-            var html = GetDotNetCountAsync().GetAwaiter().GetResult();
-            WriteLine(html);
+            WriteLine(csharp7.R10.antes.MenuItem.GetGoogleAsync().GetAwaiter().GetResult());
         }
 
-        public async Task<string> GetDotNetCountAsync()
+        public static async Task<string> GetGoogleAsync()
         {
             return await new HttpClient().GetStringAsync("http://www.google.com");
         }
