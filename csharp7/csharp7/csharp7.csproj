@@ -62,6 +62,8 @@
     <Compile Include="Aula3\R07.CorrespondenciaDePadroes\depois\Calculadora.cs" />
     <Compile Include="Aula3\R08.ExpressoesThrow\antes\AluraMovies.cs" />
     <Compile Include="Aula3\R08.ExpressoesThrow\depois\AluraMovies.cs" />
+    <Compile Include="Aula4\R09.AprimoramentosDaSintaxeDeLiteraisNuméricos\antes\MenuItem.cs" />
+    <Compile Include="Aula4\R09.AprimoramentosDaSintaxeDeLiteraisNuméricos\depois\MenuItem.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

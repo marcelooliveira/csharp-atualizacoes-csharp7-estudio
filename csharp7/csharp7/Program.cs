@@ -17,10 +17,10 @@ namespace CSharp7
             "6. Descartes",
             //AULA 3 - MELHORIAS EM CONDICIONAIS
             "7. Correspondência de Padrões",
-            "8. Expressões Throw"
+            "8. Expressões Throw",
+            //AULA 4 - LITERAIS E VALORES PADRÃO
+            "9. Aprimoramentos da Sintaxe de Literais Numéricos"
             //,
-            ////AULA 4 - LITERAIS E VALORES PADRÃO
-            //"9. Aprimoramentos da Sintaxe de Literais Numéricos",
             //"10. Async Main",
             //"11. Expressão Literal Padrão",
             ////AULA 5 - ESTILO DE CÓDIGO
