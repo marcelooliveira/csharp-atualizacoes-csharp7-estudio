@@ -1,5 +1,6 @@
 ﻿using csharp7;
 using System;
+using System.Threading.Tasks;
 using static System.Console;
 
 namespace CSharp7
@@ -27,8 +28,21 @@ namespace CSharp7
             //"13. Mais Membros com Corpo de Expressão"
         };
 
+        //static async Task<int> Main(string[] args)
         static void Main(string[] args)
         {
+            //try
+            //{
+            //    Console.WriteLine(await csharp7.R10.depois.MenuItem.GetGoogleAsync());
+            //}
+            //catch (Exception exc)
+            //{
+            //    Console.WriteLine(exc.ToString());
+            //    return 1;
+            //}
+
+            //Console.ReadKey();
+            //return 0;
 
             WriteLine("ÍNDICE DE PROGRAMAS");
             WriteLine("===================");
