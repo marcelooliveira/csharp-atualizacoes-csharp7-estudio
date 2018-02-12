@@ -31,10 +31,10 @@ namespace csharp7.R12.antes
             if (fim <= inicio)
                 throw new ArgumentException($"{nameof(fim)} deve ser maior que {nameof(inicio)}");
 
-            return implementacaoSubconjuntoDoAlfabeto(inicio, fim);
+            return ImplementacaoSubconjuntoDoAlfabeto(inicio, fim);
         }
 
-        private static IEnumerable<char> implementacaoSubconjuntoDoAlfabeto(char inicio, char fim)
+        private static IEnumerable<char> ImplementacaoSubconjuntoDoAlfabeto(char inicio, char fim)
         {
             for (var c = inicio; c < fim; c++)
                 yield return c;
