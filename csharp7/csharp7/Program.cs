@@ -19,9 +19,8 @@ namespace CSharp7
             "7. Correspondência de Padrões",
             "8. Expressões Throw",
             //AULA 4 - LITERAIS E VALORES PADRÃO
-            "9. Aprimoramentos da Sintaxe de Literais Numéricos"
-            //,
-            //"10. Async Main",
+            "9. Aprimoramentos da Sintaxe de Literais Numéricos",
+            "10. Async Main",
             //"11. Expressão Literal Padrão",
             ////AULA 5 - ESTILO DE CÓDIGO
             //"12. Funções Locais",
