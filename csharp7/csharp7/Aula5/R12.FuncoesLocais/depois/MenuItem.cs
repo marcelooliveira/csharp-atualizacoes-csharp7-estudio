@@ -43,7 +43,7 @@ namespace csharp7.R12.depois
 
     class Tarefas
     {
-        public Task<string> ExecutarTrabalhoDemorado(string endereco, int indice, string nome)
+        public async Task<string> ExecutarTrabalhoDemorado(string endereco, int indice, string nome)
         {
             if (string.IsNullOrWhiteSpace(endereco))
                 throw new ArgumentException(message: "Endereço obrigatório", paramName: nameof(endereco));
@@ -52,11 +52,6 @@ namespace csharp7.R12.depois
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException(message: "Nome obrigatório", paramName: nameof(nome));
 
-            return ImplementacaoTrabalhoDemorado(endereco, indice, nome);
-        }
-
-        private static async Task<string> ImplementacaoTrabalhoDemorado(string endereco, int indice, string nome)
-        {
             var primeiroResultado = await PrimeiroPasso(endereco);
             var segundoResultado = await SegundoPasso(indice, nome);
             return $"Os resultados são {primeiroResultado} e {segundoResultado}.";
