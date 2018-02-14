@@ -51,6 +51,22 @@ namespace csharp7.R14.depois
 
         public string Website => website;
 
+        private string endereco;
+
+        public string Endereco
+        {
+            get
+            {
+                return endereco;
+            }
+
+            set
+            {
+                endereco = value;
+            }
+        }
+
+
         public Cliente(int id, string nome, string telefone, string website)
         {
             this.id = id;
