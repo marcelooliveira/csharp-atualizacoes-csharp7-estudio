@@ -73,7 +73,10 @@ namespace csharp7.R13.depois
             }
         }
 
-        public void Adicionar(Locacao locacao) => Locacoes.Add(locacao);
+        public void Adicionar(Locacao locacao)
+        {
+            Locacoes.Add(locacao);
+        }
     }
 
     abstract class BaseResumo
