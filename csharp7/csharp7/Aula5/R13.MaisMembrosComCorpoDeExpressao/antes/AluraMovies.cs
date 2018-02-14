@@ -51,7 +51,18 @@ namespace csharp7.R13.antes
             Nome = nome;
         }
 
-        public string Nome { get; }
+        private string nome;
+        //public string Nome
+        //{
+        //    get { return nome; }
+        //}
+
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
         public IList<Locacao> Locacoes { get; } = new List<Locacao>();
         public double ValorTotal
         {
