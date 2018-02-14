@@ -48,7 +48,7 @@ namespace csharp7.R13.depois
 
         public Cliente(string nome)
         {
-            Nome = nome;
+            this.nome = nome;
         }
 
         private string nome;

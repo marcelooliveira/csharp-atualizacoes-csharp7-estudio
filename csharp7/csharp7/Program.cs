@@ -25,7 +25,7 @@ namespace CSharp7
             "11. Expressão Literal Padrão",
             //AULA 5 - ESTILO DE CÓDIGO
             "12. Funções Locais",
-            //"13. Mais Membros com Corpo de Expressão"
+            "13. Mais Membros com Corpo de Expressão"
         };
 
         //static async Task<int> Main(string[] args)
