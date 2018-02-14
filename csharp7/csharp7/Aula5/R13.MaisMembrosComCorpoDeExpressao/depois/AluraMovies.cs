@@ -55,6 +55,7 @@ namespace csharp7.R13.depois
         public string Nome
         {
             get { return nome; }
+            set { nome = value; }
         }
 
         public IList<Locacao> Locacoes { get; } = new List<Locacao>();

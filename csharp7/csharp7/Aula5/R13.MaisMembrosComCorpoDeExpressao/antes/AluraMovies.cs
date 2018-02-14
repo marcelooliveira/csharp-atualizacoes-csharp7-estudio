@@ -1,4 +1,4 @@
-﻿using System;   
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -48,15 +48,10 @@ namespace csharp7.R13.antes
 
         public Cliente(string nome)
         {
-            Nome = nome;
+            this.nome = nome;
         }
 
         private string nome;
-        //public string Nome
-        //{
-        //    get { return nome; }
-        //}
-
         public string Nome
         {
             get { return nome; }
@@ -79,7 +74,10 @@ namespace csharp7.R13.antes
             }
         }
 
-        public void Adicionar(Locacao locacao) => Locacoes.Add(locacao);
+        public void Adicionar(Locacao locacao)
+        {
+            Locacoes.Add(locacao);
+        }
     }
 
     abstract class BaseResumo
